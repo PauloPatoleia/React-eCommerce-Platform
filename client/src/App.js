@@ -1,7 +1,17 @@
 import React from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-App = () => {
-  return <div className="App">Hello world</div>;
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <main>
+        <h1>Welcome to Online Shop</h1>
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default App;
