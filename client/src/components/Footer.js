@@ -3,12 +3,10 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <Grid container>
-      <Grid xs={5}></Grid>
-      <Grid xs={2}>
+    <Grid container direction="row" justify="center">
+      <Grid item>
         <footer>Copyright © Your Website 2020</footer>
       </Grid>
-      <Grid xs={5}></Grid>
     </Grid>
   );
 }

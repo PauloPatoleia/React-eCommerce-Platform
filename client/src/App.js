@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
   return (
     <div>
       <Header />
       <main>
-        <h1>Welcome to Online Shop</h1>
+        <HomeScreen></HomeScreen>
       </main>
       <Footer />
     </div>
