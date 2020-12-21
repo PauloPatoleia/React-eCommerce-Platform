@@ -24,19 +24,3 @@ export default function HomeScreen() {
     </>
   );
 }
-
-/**
-        
-         <Grid item xs={12} md={6} lg={4}>
-            <Product />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <Product />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <Product />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <Product />
-          </Grid>
-         */
