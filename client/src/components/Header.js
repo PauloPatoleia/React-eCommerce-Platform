@@ -13,6 +13,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    marginBottom: 50,
   },
   menuButton: {
     flex: 1,
@@ -26,7 +27,7 @@ export default function Header() {
   const classes = useStyles();
   return (
     <header className={classes.root}>
-      <AppBar position="static">
+      <AppBar color="transparent" position="static">
         <Container fixed>
           <Grid container direction="row" alignItems="center">
             <Grid item xs={4}>

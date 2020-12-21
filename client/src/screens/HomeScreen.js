@@ -7,8 +7,8 @@ export default function HomeScreen() {
   return (
     <>
       <Container fixed maxWidth="md">
-        <Typography variant="h6" gutterBottom>
-          Products
+        <Typography variant="h5" gutterBottom>
+          PLACEHOLDER
         </Typography>
 
         <Grid spacing={4} container direction="row" alignItems="flex-start">
