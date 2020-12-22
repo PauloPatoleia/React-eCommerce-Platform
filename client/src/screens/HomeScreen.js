@@ -7,8 +7,8 @@ export default function HomeScreen() {
   return (
     <>
       <Container fixed maxWidth="md">
-        <Typography variant="h5" gutterBottom>
-          PLACEHOLDER
+        <Typography style={{ marginBottom: 30 }} variant="h5" gutterBottom>
+          LATEST PRODUCTS
         </Typography>
 
         <Grid spacing={4} container direction="row" alignItems="flex-start">

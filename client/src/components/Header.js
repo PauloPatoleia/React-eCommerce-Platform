@@ -17,6 +17,9 @@ import Button from "@material-ui/core/Button";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const useStyles = makeStyles((theme) => ({
+  navbarMargin: {
+    marginBottom: "50px",
+  },
   grow: {
     flexGrow: 1,
   },
@@ -116,17 +119,17 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem component={Link} to={"/products/1"}>
+      <MenuItem component={Link} to={"/signin"}>
         <Button color="inherit" startIcon={<LockOpenIcon />}>
           Sign in
         </Button>
       </MenuItem>
-      <MenuItem component={Link} to={"/products/1"}>
+      <MenuItem component={Link} to={"/login"}>
         <Button color="inherit" startIcon={<PersonIcon />}>
           Login
         </Button>
       </MenuItem>
-      <MenuItem component={Link} to={"/products/1"}>
+      <MenuItem component={Link} to={"/cart"}>
         <Button color="inherit" startIcon={<ShoppingCartIcon />}>
           Cart
         </Button>
@@ -135,7 +138,7 @@ export default function Header() {
   );
 
   return (
-    <div className={classes.grow}>
+    <div className={(classes.grow, classes.navbarMargin)}>
       <AppBar position="static" color="transparent">
         <Container fixed>
           <Toolbar>
@@ -160,17 +163,17 @@ export default function Header() {
             </div>
 
             <div className={classes.sectionDesktop}>
-              <MenuItem component={Link} to={"/products/1"}>
+              <MenuItem component={Link} to={"/signin"}>
                 <Button color="inherit" startIcon={<LockOpenIcon />}>
                   Sign in
                 </Button>
               </MenuItem>
-              <MenuItem component={Link} to={"/products/1"}>
+              <MenuItem component={Link} to={"/login"}>
                 <Button color="inherit" startIcon={<PersonIcon />}>
                   Login
                 </Button>
               </MenuItem>
-              <MenuItem component={Link} to={"/products/1"}>
+              <MenuItem component={Link} to={"/cart"}>
                 <Button color="inherit" startIcon={<ShoppingCartIcon />}>
                   Cart
                 </Button>

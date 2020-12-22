@@ -5,6 +5,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
+import { MenuItem } from "@material-ui/core";
 
 import StarRating from "./StarRating";
 
@@ -26,34 +28,36 @@ export default function Product(props) {
   const classes = useStyles();
   return (
     <div>
-      <Card className={classes.root}>
-        <CardActionArea>
-          <CardMedia
-            style={{ height: "220px" }}
-            component="img"
-            image="https://www.notebookcheck.net/uploads/tx_nbc2/4_zu_3_teaser_05.jpg"
-          ></CardMedia>
+      <MenuItem component={Link} to={"/products/1"}>
+        <Card className={classes.root}>
+          <CardActionArea>
+            <CardMedia
+              style={{ height: "220px" }}
+              component="img"
+              image="https://www.notebookcheck.net/uploads/tx_nbc2/4_zu_3_teaser_05.jpg"
+            ></CardMedia>
 
-          <CardContent>
-            <Typography variant="subtitle2" gutterBottom noWrap>
-              {props.product.name}
-            </Typography>
+            <CardContent>
+              <Typography variant="subtitle2" gutterBottom noWrap>
+                {props.product.name}
+              </Typography>
 
-            <Typography variant="caption" display="block" gutterBottom>
-              <StarRating rating={props.product.rating} />{" "}
-              {props.product.numReviews} reviews
-            </Typography>
+              <Typography variant="caption" display="block" gutterBottom>
+                <StarRating rating={props.product.rating} />{" "}
+                {props.product.numReviews} reviews
+              </Typography>
 
-            <Typography
-              className={classes.price}
-              variant="subtitle1"
-              gutterBottom
-            >
-              {props.product.price}$
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
+              <Typography
+                className={classes.price}
+                variant="subtitle1"
+                gutterBottom
+              >
+                {props.product.price}$
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      </MenuItem>
     </div>
   );
 }
