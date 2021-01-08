@@ -43,8 +43,7 @@ export default function Product(props) {
               </Typography>
 
               <Typography variant="caption" display="block" gutterBottom>
-                <ReadOnlyStarRating value={props.product.rating} />{" "}
-                {props.product.numReviews} reviews
+                <ReadOnlyStarRating value={props.product.rating} />
               </Typography>
 
               <Typography
