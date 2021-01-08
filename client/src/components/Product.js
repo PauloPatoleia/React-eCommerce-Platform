@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { MenuItem } from "@material-ui/core";
 
-import StarRating from "./StarRating";
+import ReadOnlyStarRating from "./ReadOnlyStarRating";
 
 const useStyles = makeStyles({
   root: {
@@ -43,7 +43,7 @@ export default function Product(props) {
               </Typography>
 
               <Typography variant="caption" display="block" gutterBottom>
-                <StarRating rating={props.product.rating} />{" "}
+                <ReadOnlyStarRating value={props.product.rating} />{" "}
                 {props.product.numReviews} reviews
               </Typography>
 

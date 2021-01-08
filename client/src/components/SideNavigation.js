@@ -25,6 +25,9 @@ export default function FileSystemNavigator() {
       <TreeItem nodeId="1" label="Category">
         <TreeItem nodeId="2" label="Placeholder" />
       </TreeItem>
+      <TreeItem nodeId="3" label="Band">
+        <TreeItem nodeId="4" label="Placeholder" />
+      </TreeItem>
     </TreeView>
   );
 }
