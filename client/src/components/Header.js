@@ -141,7 +141,7 @@ export default function Header() {
     <div className={(classes.grow, classes.navbarMargin)}>
       <AppBar position="static" color="transparent">
         <Container fixed>
-          <Toolbar>
+          <Toolbar disableGutters>
             <MenuItem component={Link} to={"/"}>
               <Typography className={classes.title} variant="h6" noWrap>
                 LOGO
