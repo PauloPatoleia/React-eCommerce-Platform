@@ -119,11 +119,6 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem component={Link} to={"/signin"}>
-        <Button color="inherit" startIcon={<LockOpenIcon />}>
-          Sign in
-        </Button>
-      </MenuItem>
       <MenuItem component={Link} to={"/login"}>
         <Button color="inherit" startIcon={<PersonIcon />}>
           Login
@@ -147,6 +142,7 @@ export default function Header() {
                 LOGO
               </Typography>
             </MenuItem>
+
             <div className={classes.grow} />
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -163,11 +159,6 @@ export default function Header() {
             </div>
 
             <div className={classes.sectionDesktop}>
-              <MenuItem component={Link} to={"/signin"}>
-                <Button color="inherit" startIcon={<LockOpenIcon />}>
-                  Sign in
-                </Button>
-              </MenuItem>
               <MenuItem component={Link} to={"/login"}>
                 <Button color="inherit" startIcon={<PersonIcon />}>
                   Login
