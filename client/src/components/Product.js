@@ -7,6 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { MenuItem } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import ReadOnlyStarRating from "./ReadOnlyStarRating";
 
@@ -42,12 +43,21 @@ export default function Product(props) {
                 {props.product.name}
               </Typography>
 
-              <Typography variant="caption" display="block" gutterBottom>
-                <ReadOnlyStarRating
-                  numReviews={props.product.numReviews}
-                  value={props.product.rating}
-                />
-              </Typography>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="center"
+              >
+                <Grid style={{ marginRight: "10px" }} item xs={12} sm={4}>
+                  <ReadOnlyStarRating value={props.product.rating} />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <Typography variant="caption" display="block" gutterBottom>
+                    {props.product.numReviews} reviews
+                  </Typography>
+                </Grid>
+              </Grid>
 
               <Typography
                 className={classes.price}
