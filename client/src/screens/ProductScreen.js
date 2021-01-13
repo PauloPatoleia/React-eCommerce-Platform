@@ -3,8 +3,8 @@ import { Grid, Typography } from "@material-ui/core";
 import ReadOnlyStarRating from "../components/ReadOnlyStarRating";
 import Button from "@material-ui/core/Button";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import Link from "@material-ui/core/Link";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function ProductScreen({ match }) {
   const [product, setProduct] = useState([]);
@@ -17,8 +17,8 @@ export default function ProductScreen({ match }) {
 
   return (
     <>
-      <Link href="/" underline="none" color="inherit">
-        <div style={{ display: "flex", marginBottom: "20px" }}>
+      <Button component={Link} to="/">
+        <div style={{ display: "flex" }}>
           <ArrowBackIosIcon />
           <Typography
             variant="subtitle1"
@@ -29,7 +29,7 @@ export default function ProductScreen({ match }) {
             Go back
           </Typography>
         </div>
-      </Link>
+      </Button>
 
       <Grid
         container
