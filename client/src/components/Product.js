@@ -29,7 +29,7 @@ export default function Product(props) {
   const classes = useStyles();
   return (
     <div>
-      <MenuItem component={Link} to={"/products/1"}>
+      <MenuItem component={Link} to={`/products/${props.product._id}`}>
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
