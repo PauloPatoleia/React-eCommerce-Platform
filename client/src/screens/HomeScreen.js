@@ -1,10 +1,18 @@
 import { Container, Grid, Typography } from "@material-ui/core";
-import React from "react";
-import products from "../products";
+import React, { useState, useEffect } from "react";
 import Product from "../components/Product";
 import SideNavigation from "../components/SideNavigation";
+import axios from "axios";
 
 export default function HomeScreen() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("api/products").then(function (response) {
+      setProducts(response.data);
+    });
+  }, []);
+
   return (
     <>
       <Grid
