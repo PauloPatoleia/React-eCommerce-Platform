@@ -13,7 +13,7 @@ export default function ProductScreen({ match }) {
     axios.get(`/api/products/${match.params.id}`).then(function (response) {
       setProduct(response.data);
     });
-  }, []);
+  }, [match]);
 
   return (
     <>
