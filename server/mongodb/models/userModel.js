@@ -1,29 +1,25 @@
-const mongoose = require("mongoose");
-
-const userSchema = mongoose.Schema(
-  {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mongoose = require("mongoose");
+var userSchema = mongoose.Schema({
     name: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     email: {
-      type: String,
-      required: true,
-      unique: true,
+        type: String,
+        required: true,
+        unique: true,
     },
     password: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     isAdmin: {
-      type: boolean,
-      required: true,
-      default: false,
+        type: Boolean,
+        required: true,
+        default: false,
     },
-  },
-  { timestamps: true }
-);
-
-const User = mongoose.model("User", userSchema);
-
-module.exports = User;
+}, { timestamps: true });
+var User = mongoose.model("User", userSchema);
+exports.default = User;
