@@ -1,7 +1,7 @@
 import express from "express"
-import products from "./products"
 import dotenv from "dotenv"
 import connectDB from "./mongodb/db"
+import productRoutes from "./routes/productRoutes.js"
 
 dotenv.config();
 
@@ -10,14 +10,7 @@ app.get("/", (req, res) => {
   res.send("response");
 });
 
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
-
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((product) => product._id === +req.params.id);
-  res.json(product);
-});
+app.use('/api/products', productRoutes);
 
 var PORT = process.env.PORT || 5000;
 
