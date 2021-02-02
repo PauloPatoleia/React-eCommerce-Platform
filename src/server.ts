@@ -1,21 +1,20 @@
 import express from "express"
-import dotenv from "dotenv"
 import connectDB from "./mongodb/db"
-import productRoutes from "./routes/productRoutes.js"
+import productRoutes from "./routes/productRoutes"
+import expressConfig from "./config/express.config"
 
-dotenv.config();
 
 const app = express();
-app.get("/", (req, res) => {
+app.get("/", (req, res) => { 
   res.send("response");
 });
 
 app.use('/api/products', productRoutes);
 
-var PORT = process.env.PORT || 5000;
+var PORT = expressConfig.port || 5000;
 
 connectDB.then(() => {
   app.listen(PORT, () =>
-    console.log(`Server running in ${process.env.NODE_ENV} on port ${PORT}`)
+    console.log(`Server running in ${expressConfig.nodeEnv} on port ${PORT}`)
   );
 });

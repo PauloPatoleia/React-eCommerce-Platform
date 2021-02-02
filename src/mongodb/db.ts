@@ -1,9 +1,7 @@
 import mongoose from "mongoose"
-import dotenv from "dotenv"
 import dbConfig from "../config/mongo.config"
 
-dotenv.config();
-
+console.log("String " + dbConfig.mongoURI)
 const connectDB = mongoose
   .connect(dbConfig.mongoURI, {
     useNewUrlParser: true,
