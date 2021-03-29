@@ -1,4 +1,4 @@
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import Product from "../components/Product";
 import SideNavigation from "../components/SideNavigation";
