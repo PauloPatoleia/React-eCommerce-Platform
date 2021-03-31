@@ -2,6 +2,8 @@ import { Grid, Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
 import Product from "../components/Product";
 import SideNavigation from "../components/SideNavigation";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productActions";
 
@@ -31,9 +33,9 @@ export default function HomeScreen() {
             LATEST PRODUCTS
           </Typography>
           {loading ? (
-            <h2>Loading...</h2>
+            <Loader />
           ) : error ? (
-            <h3>{error}</h3>
+            <Message severity="error" message={error} />
           ) : (
             <Grid spacing={4} container direction="row" alignItems="flex-start">
               {products.map((product) => {
