@@ -3,7 +3,6 @@ import {
   PRODUCT_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
 } from "../constants/productConstants";
-import thunk from "redux-thunk";
 import axios from "axios";
 
 export const listProducts = () => async (dispatch) => {

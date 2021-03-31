@@ -1,17 +1,17 @@
 import { Grid, Typography } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Product from "../components/Product";
 import SideNavigation from "../components/SideNavigation";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../actions/productActions";
 
 export default function HomeScreen() {
-  const [products, setProducts] = useState([]);
-
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
   useEffect(() => {
-    axios.get("api/products").then(function (response) {
-      setProducts(response.data);
-    });
-  }, []);
+    dispatch(listProducts());
+  }, [dispatch]);
 
   return (
     <>
@@ -30,15 +30,21 @@ export default function HomeScreen() {
           <Typography style={{ marginBottom: 30 }} variant="h5" gutterBottom>
             LATEST PRODUCTS
           </Typography>
-          <Grid spacing={4} container direction="row" alignItems="flex-start">
-            {products.map((product) => {
-              return (
-                <Grid key={product._id} item xs={12} md={6} lg={4}>
-                  <Product product={product} />
-                </Grid>
-              );
-            })}
-          </Grid>
+          {loading ? (
+            <h2>Loading...</h2>
+          ) : error ? (
+            <h3>{error}</h3>
+          ) : (
+            <Grid spacing={4} container direction="row" alignItems="flex-start">
+              {products.map((product) => {
+                return (
+                  <Grid key={product._id} item xs={12} md={6} lg={4}>
+                    <Product product={product} />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          )}
         </Grid>
       </Grid>
     </>
