@@ -30,10 +30,6 @@ export default function ProductScreen({ history, match }) {
   const [open, setOpen] = React.useState(false);
   const [quantity, setQuantity] = React.useState(0);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
