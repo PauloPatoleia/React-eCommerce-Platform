@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import CartScreen from "./screens/CartScreen";
 import { Container } from "@material-ui/core/";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -15,6 +16,7 @@ const App = () => {
           <Container fixed>
             <Route path="/" component={HomeScreen} exact />
             <Route path="/products/:id" component={ProductScreen} exact />
+            <Route path="/products/cart/:id?" component={CartScreen} />
             <Route></Route>
             <Route></Route>
           </Container>

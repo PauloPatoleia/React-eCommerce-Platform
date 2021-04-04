@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProductScreen({ history, match }) {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const [quantity, setQuantity] = React.useState(0);
 
