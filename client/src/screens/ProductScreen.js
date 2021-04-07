@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductScreen({ history, match }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [quantity, setQuantity] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(1);
 
   const handleClose = () => {
     setOpen(false);
