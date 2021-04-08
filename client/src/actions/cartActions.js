@@ -1,23 +1,25 @@
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
 import axios from "axios";
 
-export const addProduct = (productId, quantity) => async (
+export const addProductToCart = (productId, quantity) => async (
   dispatch,
   getState
 ) => {
-  const { product } = await axios.get(`/api/products/${productId}`);
+  const { data } = await axios.get(`/api/products/${productId}`);
 
   dispatch({
     type: CART_ADD_ITEM,
     payload: {
-      product: product._id,
-      name: product.name,
-      image: product.image,
+      product: data._id,
+      name: data.name,
+      image: data.image,
       price: data.price,
       countInStock: data.countInStock,
       quantity,
     },
   });
 
+  //how is this updated on time?
+  console.log(JSON.stringify(getState().cart.cartItems));
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
