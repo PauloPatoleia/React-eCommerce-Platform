@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { addProductToCart } from "../actions/cartActions";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -28,7 +28,15 @@ export default function CartScreen({ match, location, history }) {
 
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
+
+  useEffect(
+    (params) => {
+      if (productId) {
+        dispatch(addProductToCart(productId, quantity));
+      }
+    },
+    [dispatch, productId, quantity]
+  );
 
   const generateList = () =>
     cartItems.map((cartItem) => {
@@ -56,11 +64,12 @@ export default function CartScreen({ match, location, history }) {
               <FormControl>
                 <Select
                   // id="demo-controlled-open-select"
-                  //open={open}
-                  //onClose={handleClose}
-                  //onOpen={handleOpen}
+                  onChange={(e) => {
+                    dispatch(
+                      addProductToCart(cartItem.product, Number(e.target.value))
+                    );
+                  }}
                   value={cartItem.quantity}
-                  //onChange={handleQuantityChange}
                 >
                   {[...Array(cartItem.countInStock).keys()].map((num) => (
                     <MenuItem key={num + 1} value={num + 1}>
@@ -79,15 +88,6 @@ export default function CartScreen({ match, location, history }) {
       );
     });
 
-  useEffect(
-    (params) => {
-      if (productId) {
-        dispatch(addProductToCart(productId, quantity));
-      }
-    },
-    [dispatch, productId, quantity]
-  );
-
   return (
     <div>
       <Container fixed>
@@ -102,11 +102,22 @@ export default function CartScreen({ match, location, history }) {
             <Card>
               <CardContent>
                 <Typography variant="h5" gutterBottom>
-                  SUBTOTAL (4) ITEMS
+                  SUBTOTAL (
+                  {cartItems.reduce(
+                    (accumulator, cartItem) => accumulator + cartItem.quantity,
+                    0
+                  )}
+                  ) ITEMS
                 </Typography>
 
                 <Typography variant="button" display="block" gutterBottom>
-                  69.99$
+                  {cartItems
+                    .reduce(
+                      (accumulator, cartItem) =>
+                        accumulator + cartItem.price * cartItem.quantity,
+                      0
+                    )
+                    .toFixed(2)}
                 </Typography>
               </CardContent>
 
